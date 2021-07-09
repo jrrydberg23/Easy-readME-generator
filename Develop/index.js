@@ -6,26 +6,27 @@ const util = require("util");
 
 
 // TODO: Create an array of questions for user input
-const questions = [
+const questions = inquirer
+                    .prompt([
     {
         type: "input",
-        message: "",
-        name: "Title"
+        message: "What is the title of your project",
+        name: "Title",
     },
     {
         type: "input",
         message: "Describe your project.",
-        name: "Description"
+        name: "Description",
     },
     {
         type: "input",
         message: "What are the steps required to install your project?",
-        name: "Installation"
+        name: "Installation",
     },
     {
         type: "input",
         message: "What are the instructions for use?",
-        name: "Usage"
+        name: "Usage",
     },
     {
         type: "list",
@@ -36,36 +37,36 @@ const questions = [
             "GVL-GPL 3.0",
             "APACHE 2.0",
             "BSD 3",
-            "None"
+            "None",
         ]
     },
     {
         type: "input",
         message: "Who are the contributors?",
-        name: "Contributing"
+        name: "Contributing",
     },
     {
         type: "input",
         message: "What are your test instructions for your project?",
-        name: "Test"
+        name: "Test",
     },
     {
         type: "input",
         message: "Contact info for any extra questions.",
-        name: "Questions"
+        name: "Questions",
     },
     {
         type: "input",
         message: "What is your Github username?",
-        name: "Username"
+        name: "Username",
     },
     {
         type: "input",
         message: "What is your email?",
-        name: "Email"
+        name: "Email",
     }
 
-];
+]);
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -73,6 +74,8 @@ function writeToFile(fileName, data) {
         if (err) {
             throw err;
         }
+
+        console.log("Success! README.md file has been generated!")
     });
 }
 
